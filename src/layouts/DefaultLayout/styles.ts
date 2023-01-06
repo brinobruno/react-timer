@@ -30,6 +30,8 @@ export const LayoutContainer = styled.div`
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
 
+      transition: 0.1s ease-in-out;
+
       &:hover {
         border-bottom: 3px solid ${(props) => props.theme['green-500']};
       }

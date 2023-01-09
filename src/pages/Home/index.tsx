@@ -21,17 +21,29 @@ const newCycleFormValidationSchema = zod.object({
     .max(60, 'The cycle needs to be a maximum of 60 minutes.'),
 })
 
+/*
+interface NewCycleFormData {
+  task: string
+  minutesAmount: number
+}
+*/
+
+// The following line automates the creation and editing  of commented interface
+type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
 export function Home() {
   // Register receives input name and returns methods such as: onChange, OnBlur, etc.
-  const { register, watch, formState, handleSubmit } = useForm({
+  const { register, watch, handleSubmit } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
+    defaultValues: {
+      task: '',
+      minutesAmount: 0,
+    },
   })
 
-  function handleCreateNewCycle(data: any) {
+  function handleCreateNewCycle(data: NewCycleFormData) {
     console.log(data)
   }
-
-  console.log(formState.errors)
 
   const task = watch('task')
   const isSubmitDisabled = !task

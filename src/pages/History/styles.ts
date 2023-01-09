@@ -76,6 +76,7 @@ export const Status = styled.span<StatusProps>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  line-height: 1;
 
   &::before {
     content: '';

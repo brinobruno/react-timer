@@ -103,6 +103,13 @@ export function Home() {
   const task = watch('task')
   const isSubmitDisabled = !task
 
+  // Add countdown time to browser's tab title
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `Running - ${minutes}:${seconds}`
+    }
+  }, [minutes, seconds, activeCycle])
+
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>

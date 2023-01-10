@@ -65,6 +65,10 @@ export const TaskInput = styled(BaseInput)`
 export const MinutesAmountInput = styled(BaseInput)`
   width: 4rem;
   text-align: center;
+
+  &:disabled {
+    color: ${(props) => props.theme['gray-500']};
+  }
 `
 
 export const CountdownContainer = styled.div`
@@ -93,8 +97,7 @@ export const CountdownSeparator = styled.div`
   justify-content: center;
 `
 
-export const StartCountdownButton = styled.button`
-  background: ${(props) => props.theme['green-500']};
+const BaseCountdownButton = styled.button`
   color: ${(props) => props.theme['gray-100']};
   font-weight: bold;
 
@@ -113,8 +116,20 @@ export const StartCountdownButton = styled.button`
     opacity: 0.7;
     cursor: not-allowed;
   }
+`
+
+export const StartCountdownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['green-500']};
 
   &:not(:disabled):hover {
     background: ${(props) => props.theme['green-700']};
+  }
+`
+
+export const StopCountdownButton = styled(BaseCountdownButton)`
+  background: ${(props) => props.theme['red-500']};
+
+  &:not(:disabled):hover {
+    background: ${(props) => props.theme['red-700']};
   }
 `

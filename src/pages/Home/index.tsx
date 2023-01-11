@@ -40,15 +40,15 @@ const newCycleFormValidationSchema = zod.object({
     .max(60, 'The cycle needs to be a maximum of 60 minutes.'),
 })
 
+// The following line automates the creation and editing of commented interface below
+type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
 /*
 interface NewCycleFormData {
   task: string
   minutesAmount: number
 }
 */
-
-// The following line automates the creation and editing  of commented interface
-type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])

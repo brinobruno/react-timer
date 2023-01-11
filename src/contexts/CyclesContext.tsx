@@ -71,8 +71,6 @@ export function CyclesContextProvider({
 
     // Reset seconds in countdown
     setAmountSecondsPassed(0)
-
-    // reset()
   }
 
   function interruptCurrentCycle() {

@@ -9,7 +9,7 @@ export function CountDown() {
     activeCycle,
     activeCycleId,
     amountSecondsPassed,
-    markCurrentAsFinished,
+    markCurrentCycleAsFinished,
     setSecondsPassed,
   } = useContext(CyclesContext)
 
@@ -26,7 +26,7 @@ export function CountDown() {
         )
 
         if (secondsDifference >= totalSeconds) {
-          markCurrentAsFinished()
+          markCurrentCycleAsFinished()
 
           setSecondsPassed(totalSeconds)
 
@@ -44,7 +44,7 @@ export function CountDown() {
     activeCycle,
     activeCycleId,
     totalSeconds,
-    markCurrentAsFinished,
+    markCurrentCycleAsFinished,
     setSecondsPassed,
   ])
 
